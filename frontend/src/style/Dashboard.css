@@ -1,0 +1,85 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+.dashboard-container {
+  text-align: center;
+  padding: 30px;
+}
+
+.logout-btn {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: #ff4b2b;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-device-form input {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.add-device-form button {
+  padding: 10px 20px;
+  border: none;
+  background: #00c6ff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.device-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.device-card {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 15px;
+  padding: 20px;
+  border-radius: 15px;
+  width: 220px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+}
+
+.device-card:hover {
+  transform: translateY(-5px);
+}
+
+.online {
+  color: #00ff90;
+  font-weight: bold;
+}
+
+.offline {
+  color: #ff4b2b;
+  font-weight: bold;
+}
+
+.device-card button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.device-card .delete-btn {
+  margin-left: 10px;
+  background: #e74c3c;
+  color: white;
+}
+
+.layout {
+  display: flex;
+}
