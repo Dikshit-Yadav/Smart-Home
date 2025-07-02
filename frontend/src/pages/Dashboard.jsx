@@ -4,7 +4,8 @@ import { getDevices, toggleDevice, deleteDevice, addDevice } from '../services/a
 import DeviceCard from '../components/DeviceCard';
 import socket from '../socket';
 import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/sidebar';
+
 import '../style/Dashboard.css';
 
 function Dashboard() {
