@@ -18,3 +18,28 @@ export const getDevices = () => API.get('/devices');
 export const toggleDevice = (id) => API.put(`/devices/${id}/toggle`);
 export const deleteDevice = (id) => API.delete(`/devices/${id}`);
 export const addDevice = (data) => API.post('/devices/add', data);
+export const getDeviceLogs = () => API.get('/logs');
+export const getAnalytics = () => API.get('/analytics');
+
+//Profile APIs
+export const getProfile = () => API.get('/user/profile');
+export const updateProfile = (data) => API.put('/user/profile', data);
+
+//2FA
+// export const res = API.post('/user/verify-2fa', {
+//   token: otpValue,
+//   secret: secretFromDB 
+// });
+// export const disable2FA = () =>
+//   API.put('/user/disable-2fa', null, {
+//     headers: { userid: localStorage.getItem('userid') }
+//   });
+export const disable2FA = () => {
+  const userId = localStorage.getItem('userid');
+  return API.put('/user/disable-2fa', null, {
+    headers: {
+      userid: userId
+    }
+  });
+};
+

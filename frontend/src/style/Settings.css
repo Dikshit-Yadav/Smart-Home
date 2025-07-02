@@ -1,0 +1,49 @@
+/* Light / Dark themes via data-theme */
+body[data-theme='dark'] {
+  background: #121212;
+  color: #eee;
+}
+
+body[data-theme='light'] {
+  background: #f8f9fa;
+  color: #111;
+}
+
+.settings-container {
+  padding: 20px;
+  flex: 1;
+}
+
+.setting-option {
+  margin-bottom: 25px;
+}
+
+.theme-toggle {
+  display: flex;
+  gap: 12px;
+}
+
+.theme-toggle button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #ddd;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.reset-btn {
+  padding: 10px 25px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

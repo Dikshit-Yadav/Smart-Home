@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { registerUser, verifyOtp } from '../services/api';
 import { useNavigate, Link } from 'react-router-dom';
 import '../style/LoginPage.css';
+// import PasswordInput from '../components/PasswordInput';
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -60,6 +61,7 @@ function RegisterPage() {
           onChange={handleChange}
           disabled={otpSent}
         />
+        {/* <PasswordInput required placeholder="Password" onChange={handleChange} disabled={otpSent}/> */}
         <input
           type="password"
           name="password"

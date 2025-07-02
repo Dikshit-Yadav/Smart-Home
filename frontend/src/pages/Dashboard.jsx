@@ -35,6 +35,7 @@ function Dashboard() {
     socket.on('device-updated', () => {
       fetchDevices();
     });
+    
 
     return () => {
       socket.off('device-updated');  
@@ -43,6 +44,7 @@ function Dashboard() {
 
   const handleToggle = async (id) => {
     await toggleDevice(id);
+     await fetchDevices();
   };
 
   const handleDelete = async (id) => {
@@ -73,7 +75,7 @@ function Dashboard() {
       <h1>Smart Home Control Panel</h1>
       {/* <button onClick={handleLogout} className="logout-btn">Logout</button> */}
 
-      <div className="add-device-form">
+      {/* <div className="add-device-form">
         <input
           value={deviceName}
           onChange={(e) => setDeviceName(e.target.value)}
@@ -85,7 +87,7 @@ function Dashboard() {
           placeholder="Device Type"
         />
         <button onClick={handleAdd}>Add Device</button>
-      </div>
+      </div> */}
 
       <div className="device-grid">
         {devices.map((device) => (
