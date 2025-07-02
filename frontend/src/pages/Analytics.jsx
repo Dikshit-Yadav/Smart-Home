@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/sidebar';
 import { getAnalytics } from '../services/api';
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';

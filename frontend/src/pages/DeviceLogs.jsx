@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/sidebar';
 import { getDeviceLogs } from '../services/api';
 import socket from '../socket';
 import '../style/DeviceLogs.css';

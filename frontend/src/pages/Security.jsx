@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/sidebar';
 import Navbar from '../components/Navbar';
 import PasswordInput from '../components/PasswordInput';
 import { disable2FA } from '../services/api';

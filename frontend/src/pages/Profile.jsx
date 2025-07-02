@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/sidebar';
 import Navbar from '../components/Navbar';
 import '../style/Profile.css';
 import { getProfile, updateProfile } from '../services/api';
