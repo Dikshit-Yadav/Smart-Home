@@ -23,17 +23,31 @@ export const getDeviceLogs = () => API.get('/logs');
 export const getAnalytics = () => API.get('/analytics');
 
 //Profile APIs
-export const getProfile = () => {
-  return API.get('/user/profile', {
-    headers: { userid: localStorage.getItem('userid') }
+export const getProfile = () =>
+  API.get('/user/profile', {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    }
   });
-};
 
-export const updateProfile = (data) => {
-  return API.put('/user/profile', data, {
-    headers: { userid: localStorage.getItem('userid') }
+export const updateProfile = (data) =>
+  API.put('/user/profile', data, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    }
   });
-};
+
+// export const getProfile = () => {
+//   return API.get('/user/profile', {
+//     headers: { userid: localStorage.getItem('userid') }
+//   });
+// };
+
+// export const updateProfile = (data) => {
+//   return API.put('/user/profile', data, {
+//     headers: { userid: localStorage.getItem('userid') }
+//   });
+// };
 
 
 export const disable2FA = () => {

@@ -5,6 +5,7 @@ const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 const speakeasy = require('speakeasy');
 const QRCode = require('qrcode');
+const authMiddleware = require('../middleware/authMiddleware');
 
 require('dotenv').config();
 
@@ -108,12 +109,11 @@ router.post('/login', async (req, res) => {
   }
 });
 
+
 // GET user profile
-router.get('/profile', async (req, res) => {
+router.get('/profile', authMiddleware, async (req, res) => {
   try {
-    const userId = req.headers['userid'];
-    console.log("UserID:", userId)
-    const user = await User.findById(userId).select('-password');
+    const user = await User.findById(req.user.id).select('-password');
     if (!user) return res.status(404).json({ message: 'User not found' });
     res.json(user);
   } catch (err) {
@@ -121,17 +121,17 @@ router.get('/profile', async (req, res) => {
   }
 });
 
-
 // UPDATE user profile
-router.put('/profile', async (req, res) => {
+router.put('/profile', authMiddleware, async (req, res) => {
   try {
-    const userId = req.headers['userid'];
-    const { username, email } = req.body;
-    const user = await User.findById(userId);
+    const { username, email, password } = req.body;
+    const user = await User.findById(req.user.id);
     if (!user) return res.status(404).json({ message: 'User not found' });
 
     user.username = username || user.username;
     user.email = email || user.email;
+    if (password) user.password = password;
+
     await user.save();
 
     res.json({ message: 'Profile updated successfully' });
@@ -139,6 +139,38 @@ router.put('/profile', async (req, res) => {
     res.status(500).json({ message: 'Failed to update profile' });
   }
 });
+
+// GET user profile
+// router.get('/profile', async (req, res) => {
+//   try {
+//     const userId = req.headers['userid'];
+//     console.log("UserID:", userId)
+//     const user = await User.findById(userId).select('-password');
+//     if (!user) return res.status(404).json({ message: 'User not found' });
+//     res.json(user);
+//   } catch (err) {
+//     res.status(500).json({ message: 'Failed to fetch profile' });
+//   }
+// });
+
+
+// UPDATE user profile
+// router.put('/profile', async (req, res) => {
+//   try {
+//     const userId = req.headers['userid'];
+//     const { username, email } = req.body;
+//     const user = await User.findById(userId);
+//     if (!user) return res.status(404).json({ message: 'User not found' });
+
+//     user.username = username || user.username;
+//     user.email = email || user.email;
+//     await user.save();
+
+//     res.json({ message: 'Profile updated successfully' });
+//   } catch (err) {
+//     res.status(500).json({ message: 'Failed to update profile' });
+//   }
+// });
 
 // router.put('/profile', authMiddleware, async (req, res) => {
 //   const { username, email, password } = req.body;
