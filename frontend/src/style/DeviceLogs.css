@@ -1,4 +1,4 @@
-.main-content {
+/* .main-content {
   padding: 20px;
   font-family: 'Poppins', sans-serif;
   color: #333;
@@ -39,4 +39,95 @@
 .log-table tr:hover {
   background-color: #f9f9f9;
   transition: 0.3s;
+} */
+
+
+.main-content {
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.log-table-container {
+  margin-top: 30px;
+  overflow: auto;
+  max-height: 70vh;
+  background: #ffffff;
+  padding: 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.log-table-container::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.log-table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.log-table-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.log-table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  min-width: 600px;
+}
+
+.log-table th {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(135deg, #4a90e2, #007bff);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  z-index: 1;
+}
+
+.log-table th,
+.log-table td {
+  padding: 18px 24px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.log-table td {
+  color: #222;
+  background-color: #fff;
+}
+
+.log-table tr:hover {
+  background-color: #f9f9f9;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .log-table-container {
+    max-height: 60vh;
+    padding: 0;
+  }
+
+  .log-table {
+    font-size: 14px;
+  }
+
+  .log-table th,
+  .log-table td {
+    padding: 14px 16px;
+  }
 }

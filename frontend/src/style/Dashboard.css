@@ -37,6 +37,7 @@ body {
 }
 
 .device-grid {
+  width: 50vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
