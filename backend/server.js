@@ -21,22 +21,25 @@ const io = require('socket.io')(server, {
 });
 
 // app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://smart-home-epyizbrgn-dikshit-yadavs-projects.vercel.app',
-  'https://smart-home-cifp.onrender.com'
-];
-
 app.use(cors({
   origin: function (origin, callback) {
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'https://smart-home-iufbwvayu-dikshit-yadavs-projects.vercel.app',
+      'https://smart-home-cifp.onrender.com'
+    ];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+app.options('*', cors()); 
+
 app.use((req, res, next) => {
   console.log(`[${req.method}] ${req.path}`);
   next();
