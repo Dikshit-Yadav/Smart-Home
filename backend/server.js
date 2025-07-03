@@ -25,10 +25,12 @@ app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [
       'http://localhost:5173',
-      'https://smart-home-iufbwvayu-dikshit-yadavs-projects.vercel.app',
       'https://smart-home-cifp.onrender.com'
     ];
-    if (!origin || allowedOrigins.includes(origin)) {
+
+    const isVercelPreview = origin?.includes('vercel.app');
+
+    if (!origin || allowedOrigins.includes(origin) || isVercelPreview) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -38,6 +40,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+
 // app.options('*', cors()); 
 
 app.use((req, res, next) => {
