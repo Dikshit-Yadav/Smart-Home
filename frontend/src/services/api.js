@@ -23,18 +23,19 @@ export const getDeviceLogs = () => API.get('/logs');
 export const getAnalytics = () => API.get('/analytics');
 
 //Profile APIs
-export const getProfile = () => API.get('/user/profile');
-export const updateProfile = (data) => API.put('/user/profile', data);
+export const getProfile = () => {
+  return API.get('/user/profile', {
+    headers: { userid: localStorage.getItem('userid') }
+  });
+};
 
-//2FA
-// export const res = API.post('/user/verify-2fa', {
-//   token: otpValue,
-//   secret: secretFromDB 
-// });
-// export const disable2FA = () =>
-//   API.put('/user/disable-2fa', null, {
-//     headers: { userid: localStorage.getItem('userid') }
-//   });
+export const updateProfile = (data) => {
+  return API.put('/user/profile', data, {
+    headers: { userid: localStorage.getItem('userid') }
+  });
+};
+
+
 export const disable2FA = () => {
   const userId = localStorage.getItem('userid');
   return API.put('/user/disable-2fa', null, {
