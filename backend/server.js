@@ -20,7 +20,28 @@ const io = require('socket.io')(server, {
   }
 });
 
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+// app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://smart-home-epyizbrgn-dikshit-yadavs-projects.vercel.app',
+  'https://smart-home-cifp.onrender.com'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+app.use((req, res, next) => {
+  console.log(`[${req.method}] ${req.path}`);
+  next();
+});
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
