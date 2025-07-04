@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const speakeasy = require('speakeasy');
 const QRCode = require('qrcode');
 const authMiddleware = require('../middleware/authMiddleware');
+const bcrypt = require('bcryptjs');
 
 require('dotenv').config();
 
