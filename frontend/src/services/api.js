@@ -37,19 +37,6 @@ export const updateProfile = (data) =>
     }
   });
 
-// export const getProfile = () => {
-//   return API.get('/user/profile', {
-//     headers: { userid: localStorage.getItem('userid') }
-//   });
-// };
-
-// export const updateProfile = (data) => {
-//   return API.put('/user/profile', data, {
-//     headers: { userid: localStorage.getItem('userid') }
-//   });
-// };
-
-
 export const disable2FA = () => {
   const userId = localStorage.getItem('userid');
   return API.put('/user/disable-2fa', null, {

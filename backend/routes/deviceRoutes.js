@@ -1,57 +1,3 @@
-// const express = require('express');
-// const router = express.Router();
-// const Device = require('../models/Device');
-
-// module.exports = function (io) {
-
-//   router.get('/', async (req, res) => {
-//     try {
-//       const devices = await Device.find();
-//       res.json(devices);
-//     } catch (err) {
-//       res.status(500).json({ message: "Failed to fetch devices" });
-//     }
-//   });
-
-//   router.post('/add', async (req, res) => {
-//     try {
-//       const newDevice = new Device(req.body);
-//       await newDevice.save();
-//       io.emit('device-updated');
-//       res.status(201).json(newDevice);
-//     } catch (err) {
-//       res.status(500).json({ message: "Failed to add device" });
-//     }
-//   });
-
-//   router.put('/:id/toggle', async (req, res) => {
-//     try {
-//       const device = await Device.findById(req.params.id);
-//       device.status = device.status === 'ON' ? 'OFF' : 'ON';
-//       await device.save();
-//       io.emit('device-updated');
-//       res.json(device);
-//     } catch (err) {
-//       res.status(500).json({ message: "Failed to toggle device" });
-//     }
-//   });
-
-//   router.delete('/:id', async (req, res) => {
-//     try {
-//       await Device.findByIdAndDelete(req.params.id);
-//       io.emit('device-updated');
-//       res.json({ message: 'Device deleted' });
-//     } catch (err) {
-//       res.status(500).json({ message: "Failed to delete device" });
-//     }
-//   });
-
-//   return router;
-// };
-
-
-
-
 const express = require('express');
 const router = express.Router();
 const Device = require('../models/Device');
@@ -99,6 +45,29 @@ module.exports = (io) => {
       res.status(500).json({ message: "Failed to toggle device" });
     }
   });
+  // DELETE a device by ID
+router.delete('/:id', async (req, res) => {
+  try {
+    const deletedDevice = await Device.findByIdAndDelete(req.params.id);
+    if (!deletedDevice) {
+      return res.status(404).json({ message: 'Device not found' });
+    }
+
+    // Optionally: log deletion
+    await DeviceLog.create({
+      deviceId: deletedDevice._id,
+      deviceName: deletedDevice.deviceName,
+      action: 'DELETED'
+    });
+
+    io.emit('device-updated'); // let frontend know
+    res.json({ message: 'Device deleted successfully' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Failed to delete device' });
+  }
+});
+
 
   // Add device
   router.post('/add', async (req, res) => {
