@@ -196,25 +196,26 @@ router.put('/profile', authMiddleware, async (req, res) => {
 // });
 
 // Change password
-router.put('/change-password', async (req, res) => {
-  try {
-    const userId = req.headers['userid'];
-    const { oldPassword, newPassword } = req.body;
+router.put('/change-password', authMiddleware, async (req, res) => {
+  const { oldPassword, newPassword } = req.body;
 
-    const user = await User.findById(userId);
+  try {
+    const user = await User.findById(req.user.id); // user ID from token
     if (!user) return res.status(404).json({ message: 'User not found' });
 
-    const isMatch = await user.comparePassword(oldPassword);
-    if (!isMatch) return res.status(400).json({ message: 'Old password is incorrect' });
+    const isMatch = await bcrypt.compare(oldPassword, user.password);
+    if (!isMatch) return res.status(401).json({ message: 'Old password is incorrect' });
 
-    user.password = newPassword;
+    user.password = await bcrypt.hash(newPassword, 10);
     await user.save();
 
     res.json({ message: 'Password updated successfully' });
   } catch (err) {
-    res.status(500).json({ message: 'Failed to update password' });
+    console.error(err);
+    res.status(500).json({ message: 'Failed to change password' });
   }
 });
+
 
 // Generate QR Code + Secret
 router.post('/generate-2fa', async (req, res) => {

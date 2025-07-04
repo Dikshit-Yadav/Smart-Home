@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-const API = axios.create({
+export const API = axios.create({
   // baseURL: 'http://localhost:5000/api'
-  baseURL: `${import.meta.env.VITE_API_URL}/api`
+  baseURL: `${import.meta.env.VITE_API_URL}/api`,
+   withCredentials: true,
 });
 
 // OTP generate
@@ -39,10 +40,7 @@ export const updateProfile = (data) =>
 
 export const disable2FA = () => {
   const userId = localStorage.getItem('userid');
-  return API.put('/user/disable-2fa', null, {
-    headers: {
-      userid: userId
-    }
+  return API.put('/user/disable-2fa', {}, {
+    headers: { userid: userId }
   });
 };
-

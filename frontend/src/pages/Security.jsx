@@ -4,7 +4,8 @@ import Navbar from '../components/Navbar';
 import PasswordInput from '../components/PasswordInput';
 import { disable2FA } from '../services/api';
 import '../style/Security.css';
-import axios from 'axios';
+// import axios from 'axios';
+import { API } from '../services/api';
 
 function ChangePassword() {
   const [oldPassword, setOldPassword] = useState('');
@@ -13,27 +14,30 @@ function ChangePassword() {
   const [message, setMessage] = useState('');
 
   const handleDisable2FA = async () => {
-  try {
-    const res = await disable2FA();
-    alert(res.data.message);
-  } catch (err) {
-    console.error(err);
-    alert('❌ Failed to disable 2FA');
-  }
-};
+    try {
+      const res = await disable2FA();
+      alert(res.data.message);
+    } catch (err) {
+      console.error(err);
+      alert('❌ Failed to disable 2FA');
+    }
+  };
+
   const handleChangePassword = async (e) => {
     e.preventDefault();
-    const userId = localStorage.getItem('userid');
+    // const userId = localStorage.getItem('userid');
     if (newPassword !== confirmPassword) {
       return setMessage('❌ New passwords do not match');
     }
 
     try {
-      const res = await axios.put('http://localhost:5000/api/user/change-password', {
+      const res = await API.put('/user/change-password', {
         oldPassword,
         newPassword,
       }, {
-        headers: { userid: userId }
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
       });
 
       setMessage('✅ ' + res.data.message);
@@ -54,8 +58,8 @@ function ChangePassword() {
         <div className="security-page">
           <h2>🔒 Change Password</h2>
           <button className="disable-btn" onClick={handleDisable2FA}>
-  🔓 Disable 2FA
-</button>
+            🔓 Disable 2FA
+          </button>
 
           <form className="password-form" onSubmit={handleChangePassword}>
             <input
