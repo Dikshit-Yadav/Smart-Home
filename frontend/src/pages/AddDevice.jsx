@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/sidebar';
 import { addDevice, getDevices, deleteDevice } from '../services/api';
-import '../style/AddDevice.css';  // We'll write CSS too
+import '../style/AddDevice.css';  
 import Navbar from '../components/Navbar';
 
 function AddDevice() {

@@ -47,7 +47,7 @@ function Profile() {
 
   return (
     <>
-      <Navbar />
+    <Navbar />
       <div className="layout">
         <Sidebar />
         <div className="profile-page">

@@ -52,7 +52,7 @@ function ChangePassword() {
 
   return (
     <>
-      <Navbar />
+     <Navbar />
       <div className="layout">
         <Sidebar />
         <div className="security-page">

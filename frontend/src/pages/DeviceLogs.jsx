@@ -26,7 +26,8 @@ function DeviceLogs() {
   }, []);
 
   return (
-    <><Navbar/>
+    <>
+    <Navbar/>
     <div className="dashboard-page">
       <Sidebar />
       <div className="main-content">

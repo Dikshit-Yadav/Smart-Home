@@ -32,7 +32,7 @@ function Dashboard() {
       fetchDevices();
     }
 
-    // real-time updates from server
+    // real-time updates server
     socket.on('device-updated', () => {
       fetchDevices();
     });

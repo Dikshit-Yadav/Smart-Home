@@ -40,7 +40,8 @@ function Analytics() {
   };
 
   return (
-    <><Navbar/>
+    <>
+    <Navbar/>
     <div className="dashboard-page">
       <Navbar/>
       <Sidebar />

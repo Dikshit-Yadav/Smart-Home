@@ -36,6 +36,7 @@ function EnableQR2FA() {
 
     return (
         <>
+        
             <Navbar />
             <div className="layout">
                 <Sidebar />
