@@ -1,4 +1,4 @@
-.sidebar {
+/* .sidebar {
   width: 200px;
   height: 100vh;
   background: linear-gradient(135deg, #2c3e50, #4ca1af);
@@ -28,4 +28,60 @@
 .sidebar li:hover {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
+} */
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  color: white;
+  padding-top: 20px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  transition: width 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  overflow-x: hidden;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.toggle-btn {
+  text-align: right;
+  padding: 0 15px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.menu-item .icon {
+  font-size: 20px;
+  width: 30px;
+}
+
+.menu-item .label {
+  font-size: 16px;
+  transition: opacity 0.3s;
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/sidebar';
 import { getDeviceLogs } from '../services/api';
 import socket from '../socket';
+import Navbar from '../components/Navbar';
 import '../style/DeviceLogs.css';
 
 function DeviceLogs() {
@@ -25,6 +26,7 @@ function DeviceLogs() {
   }, []);
 
   return (
+    <><Navbar/>
     <div className="dashboard-page">
       <Sidebar />
       <div className="main-content">
@@ -51,6 +53,7 @@ function DeviceLogs() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

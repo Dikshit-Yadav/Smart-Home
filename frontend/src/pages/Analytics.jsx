@@ -5,6 +5,7 @@ import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
 import socket from '../socket';
 import '../style/Analytics.css';
+import Navbar from '../components/Navbar';
 
 function Analytics() {
   const [data, setData] = useState({ totalDevices: 0, onDevices: 0, offDevices: 0 });
@@ -39,7 +40,9 @@ function Analytics() {
   };
 
   return (
+    <><Navbar/>
     <div className="dashboard-page">
+      <Navbar/>
       <Sidebar />
       <div className="main-content">
         <h1>📈 Analytics</h1>
@@ -55,6 +58,7 @@ function Analytics() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

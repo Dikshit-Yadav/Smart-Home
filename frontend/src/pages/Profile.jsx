@@ -41,7 +41,7 @@ function Profile() {
       setPassword('');
       setConfirmPassword('');
     } catch (err) {
-      setError('Failed to update profile');
+      setError(`Failed to update profile ${err}`);
     }
   };
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/sidebar';
 import { addDevice, getDevices, deleteDevice } from '../services/api';
 import '../style/AddDevice.css';  // We'll write CSS too
+import Navbar from '../components/Navbar';
 
 function AddDevice() {
   const [deviceName, setDeviceName] = useState('');
@@ -50,6 +51,7 @@ function AddDevice() {
   };
 
   return (
+    <><Navbar/>
     <div className="dashboard-page">
       <Sidebar />
       <div className="main-content">
@@ -86,6 +88,7 @@ function AddDevice() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

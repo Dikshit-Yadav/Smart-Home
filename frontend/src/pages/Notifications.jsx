@@ -1,7 +1,9 @@
 import React from 'react';
 import Sidebar from '../components/sidebar';
+import Navbar from '../components/Navbar';
 function Notifications() {
   return (
+    <><Navbar/>
     <div className="dashboard-page">
       <Sidebar />
       <div className="main-content">
@@ -9,6 +11,7 @@ function Notifications() {
         <p>Here you will see your notifications.</p>
       </div>
     </div>
+    </>
   );
 }
 
