@@ -1,12 +1,12 @@
 /* Light / Dark themes via data-theme */
 body[data-theme='dark'] {
-   background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: #121212;
   color: #eee;
 }
 
 body[data-theme='light'] {
-  background: #f8f9fa;
-  color: #111;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #eee;
 }
 
 .settings-container {
