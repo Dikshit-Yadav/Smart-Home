@@ -1,5 +1,6 @@
 .main-content {
   padding: 20px;
+  height: 80vh;
 }
 
 .stats {
@@ -28,23 +29,10 @@
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  height: 450px;
-  max-width: 450px;
+  height: 60vh;
+  max-width: 60vh;
   margin: auto;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .view-btn {
   display: block;
