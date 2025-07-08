@@ -42,10 +42,23 @@
   transition: width 0.3s ease;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
   overflow-x: hidden;
+   scrollbar-width: thin; 
+  scrollbar-color: white #4ca1af; 
 }
 
 .sidebar.collapsed {
   width: 60px;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: #2c3e50;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 3px;
 }
 
 .toggle-btn {
