@@ -84,3 +84,6 @@ body {
 .layout {
   display: flex;
 }
+.dashboard-container {
+  margin-top: 60px;
+}

@@ -1,19 +1,135 @@
+/* .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to right, #1f1f1f, #2c3e50);
+  color: white;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
 .navbar-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #f8f9fa; 
 }
 
-.nav-left a {
-  font-size: 1.2rem;
+.nav-left .navbar-brand {
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
   text-decoration: none;
 }
 
-.nav-right img {
+.nav-left .navbar-brand:hover {
+  color: #00c6ff;
+}
+
+.nav-right .profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   border: 2px solid #ccc;
   cursor: pointer;
+} */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to right, #1f1f1f, #2c3e50);
+  color: white;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-container {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-left .navbar-brand:hover {
+  color: #00c6ff;
+}
+
+/* .nav-right i{
+  border: none;
+  border-radius: 50%;
+  font-size: 30px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+} */
+
+.nav-right i:hover{
+  color: #00c6ff;
+}
+
+.user-popup {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  z-index: 999;
+  width: 250px;
+}
+
+.user-popup h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.user-popup p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.profile-icon {
+  font-size: 32px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.profile-icon:hover{
+  border-color: #00c6ff;
 }
