@@ -1,4 +1,4 @@
-.profile-container {
+ .profile-page {
   max-width: 600px;
   margin: 50px auto;
   background: #fff;
@@ -7,9 +7,27 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   font-family: 'Poppins', sans-serif;
   color: #333;
+  max-height: 80vh; 
+  overflow-y: auto; 
+  position: relative;
+  top: 30px;
 }
 
-.profile-container h2 {
+.profile-page::-webkit-scrollbar {
+  display: none;
+}
+
+.profile-page::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 4px;
+}
+
+.profile-page::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+
+.profile-page h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #007bff;
